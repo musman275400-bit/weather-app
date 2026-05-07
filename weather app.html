@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      input{
+        width: 200px;
+        background-color: rgb(15, 52, 216);
+        height: 30px;
+        border-radius: 10PX;
+        color: aliceblue;
+      }
+      div{
+        padding: 100px;
+        width: 200px;
+        height: 100px;
+        background-color: goldenrod;
+        border-radius: 10px;
+        align-items: center;
+        margin: 80px;
+        box-shadow: 20px 10px 30px solid rgb(127, 136, 127);
+      }
+      button{
+        width: 150px;
+        margin: 20px;
+        height: 50px;
+         border-radius: 20px;
+         background-color: green;
+         color: aliceblue;
+      }
+      body{
+        background-color: rgb(179, 101, 101);
+      }
+      label{
+        color: rgb(20, 27, 32);
+      }
+    </style>
+</head>
+<body>
+  <center>
+  <div>
+    <label for="check weather">CHECK WEATHER</label><br>
+    <input type="text">
+       <button> CHECK WEATHER</button>
+       <h1></h1>
+       </div>
+       </center>
+</body>
+<script>
+  let text=document.querySelector("h1")
+  let input=document.querySelector("input")
+  let btn=document.querySelector("button")
+  btn,addEventListener("click",()=>{
+    let city=input.value
+     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${"560dc8bfa2794a7872a2c953177e7dd9"}&units=metric`) 
+     .then(response=>response.json())
+     .then(data=>console.log(`data.main.temp,text.textContent=data.main.c` ))
+  })
+//   let text=document.querySelector("h1")
+//   let input=document.querySelector("input")
+//   let btn=document.querySelector("button")
+//   btn.addEventListener("click",()=>{
+//    let city=input.value 
+//  fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${"560dc8bfa2794a7872a2c953177e7dd9"}&units=metric`) 
+//   .then(response=>response.json())
+//   .then(data=>console.log(data.main.temp,text.textContent=data.main.temp))
+
+//   })
+//   </script>
+</html>
